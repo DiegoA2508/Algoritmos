@@ -1,18 +1,7 @@
+package Algoritmos;
 import java.math.BigInteger;
-import java.util.Random;
 
 public class AmericanaRecursivoDinamico {
-
-    public static BigInteger generarNumeroAleatorio(int longitud) {
-        Random random = new Random();
-        StringBuilder numeroAleatorioStr = new StringBuilder();
-        // Asegurarse de que el primer dígito no sea cero
-        numeroAleatorioStr.append(random.nextInt(9) + 1);
-        for (int i = 1; i < longitud; i++) {
-            numeroAleatorioStr.append(random.nextInt(10)); // Números del 0 al 9
-        }
-        return new BigInteger(numeroAleatorioStr.toString());
-    }
     
     public static BigInteger multiplicacionAmericana(BigInteger multiplicando, BigInteger multiplicador) {
         // Convertir los números en cadenas para poder obtener la longitud de los dígitos
@@ -46,26 +35,5 @@ public class AmericanaRecursivoDinamico {
         
         // Calcular el resultado final utilizando la fórmula adecuada
         return ac.multiply(BigInteger.TEN.pow(longitudMultiplicando)).add(ad.add(bc).multiply(BigInteger.TEN.pow(mitadMultiplicando))).add(bd);
-    }
-    
-    public static void main(String[] args) {
-        // Generar números aleatorios para la multiplicación
-        int longitudMultiplicando = 32500; // Ajusta la longitud según tus necesidades
-        int longitudMultiplicador = 32500; // Ajusta la longitud según tus necesidades
-        
-        BigInteger multiplicando = generarNumeroAleatorio(longitudMultiplicando);
-        BigInteger multiplicador = generarNumeroAleatorio(longitudMultiplicador);
-        
-        //System.out.println("Multiplicando: " + multiplicando);
-        //System.out.println("Multiplicador: " + multiplicador);
-        
-        // Realizar la multiplicación
-        long startTime = System.currentTimeMillis();
-        multiplicacionAmericana(multiplicando, multiplicador);
-        long endTime = System.currentTimeMillis();
-        
-        // Imprimir el resultado
-        //System.out.println("Resultado: " + resultado);
-        System.out.println("El tiempo de ejecucion con " + longitudMultiplicador + " es: " +(endTime-startTime) + " ms ");
     }
 }

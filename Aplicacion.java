@@ -3,6 +3,15 @@ import java.util.Random;
 
 import javax.swing.*;
 
+import Algoritmos.AmericanaIterativoDinamico;
+import Algoritmos.AmericanaIterativoEstatico;
+import Algoritmos.AmericanaRecursivo;
+import Algoritmos.AmericanaRecursivoDinamico;
+import Algoritmos.DivideyVenceras;
+import Algoritmos.HinduIterativo;
+import Algoritmos.InglesaIterativoDinamico;
+import Algoritmos.InglesaIterativoEstatico;
+import Algoritmos.InglesaRecursivoEstatico;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;

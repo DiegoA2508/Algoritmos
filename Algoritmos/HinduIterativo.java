@@ -1,18 +1,7 @@
+package Algoritmos;
 import java.math.BigInteger;
-import java.util.Random;
 
 public class HinduIterativo {
-
-    public static BigInteger generarNumeroAleatorio(int longitud) {
-        Random random = new Random();
-        StringBuilder numeroAleatorioStr = new StringBuilder();
-        // Asegurarse de que el primer dígito no sea cero
-        numeroAleatorioStr.append(random.nextInt(9) + 1);
-        for (int i = 1; i < longitud; i++) {
-            numeroAleatorioStr.append(random.nextInt(10)); // Números del 0 al 9
-        }
-        return new BigInteger(numeroAleatorioStr.toString());
-    }
     
     public static BigInteger multiply(BigInteger x, BigInteger y) {
         // Convierte los números a cadenas para facilitar la manipulación
@@ -55,19 +44,5 @@ public class HinduIterativo {
             paddedStr.insert(0, '0');
         }
         return paddedStr.toString();
-    }
-
-    public static void main(String[] args) {
-        int longitudMultiplicando = 10000;
-        int longitudMultiplicador = 10000;
-        BigInteger x = generarNumeroAleatorio(longitudMultiplicando);
-        BigInteger y = generarNumeroAleatorio(longitudMultiplicador);
-
-        long startTime = System.currentTimeMillis();
-        multiply(x, y);
-        long endTime = System.currentTimeMillis();
-
-        //System.out.println("Resultado de la multiplicación: " + multiply(x, y));
-        System.out.println("El tiempo de ejecucion con " + longitudMultiplicador + " es: " +(endTime-startTime) + " ms ");
     }
 }
