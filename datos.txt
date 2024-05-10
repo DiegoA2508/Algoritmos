@@ -6,5 +6,4 @@ Inglesa iterativo (estatico), 30.950
 Inglesa iterativo (dinamico), 32.825
 Inglesa recursivo (estatico), 5.192
 Inglesa recursivo (dinamico), 7.064
-Hindu iterativo (estatico), 0
 Divide y vencerás (estatico), 0.014
