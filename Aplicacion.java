@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -18,8 +20,8 @@ import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
     
-    static int longitudMultiplicando = 5500; // Ajusta la longitud según tus necesidades
-    static int longitudMultiplicador = 5500; // Ajusta la longitud según tus necesidades
+    static int longitudMultiplicando = 5000; // Ajusta la longitud según tus necesidades
+    static int longitudMultiplicador = 5000; // Ajusta la longitud según tus necesidades
 
     static BigInteger multiplicando = generarNumeroAleatorio(longitudMultiplicando);
     static BigInteger multiplicador = generarNumeroAleatorio(longitudMultiplicador);
@@ -62,61 +64,80 @@ public class Aplicacion extends Application {
                     long startTime = System.currentTimeMillis();
                     AmericanaIterativoEstatico.multiplicacionAmericana(multiplicando, multiplicador);
                     long endTime = System.currentTimeMillis();
+                    long tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Americana iterativo (dinámico)":
                     startTime = System.currentTimeMillis();
                     AmericanaIterativoDinamico.multiplicacionAmericana(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
-                    break;
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);break;
                 case "Americana recursivo (estático)":
                     startTime = System.currentTimeMillis();
                     AmericanaRecursivo.multiplicacionAmericana(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Americana recursivo (dinámico)":
                     startTime = System.currentTimeMillis();
                     AmericanaRecursivoDinamico.multiplicacionAmericana(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Inglesa iterativo (estático)":
                     startTime = System.currentTimeMillis();
                     InglesaIterativoEstatico.multiplicacionInglesa(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Inglesa iterativo (dinámico)":
                     startTime = System.currentTimeMillis();
                     InglesaIterativoDinamico.multiplicacionInglesa(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
-                break;
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
+                    break;
                 case "Inglesa recursivo (estático)":
                     startTime = System.currentTimeMillis();
                     InglesaRecursivoEstatico.multiplicacionInglesa(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Inglesa recursivo (dinámico)":
                     startTime = System.currentTimeMillis();
                     InglesaIterativoDinamico.multiplicacionInglesa(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Hindú iterativo (estático)":
                     startTime = System.currentTimeMillis();
                     HinduIterativo.multiply(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Divide y vencerás (estático)":
                     startTime = System.currentTimeMillis();
                     DivideyVenceras.multiply(multiplicando, multiplicador);
                     endTime = System.currentTimeMillis();
+                    tiempoEjecucion = (endTime-startTime);
                     JOptionPane.showMessageDialog(null, "El tiempo de ejecucion con " + longitudMultiplicador + " numeros es: " +(endTime-startTime) + " ms");
+                    guardarEnArchivo(choice, longitudMultiplicador, tiempoEjecucion);
                     break;
                 case "Gráfica":
                     Platform.runLater(() -> {
@@ -144,5 +165,15 @@ public class Aplicacion extends Application {
         return new BigInteger(numeroAleatorioStr.toString());
     }
 
-    
+    public static void guardarEnArchivo(String algoritmo, int longitudMultiplicador, long tiempoEjecucion) {
+        String fileName = "tiempos_de_ejecucion.txt";
+        try {
+            FileWriter writer = new FileWriter(fileName, true);
+            writer.write("Algoritmo: " + algoritmo + ", Longitud del multiplicador: " + longitudMultiplicador
+                    + ", Tiempo de ejecución: " + tiempoEjecucion + "ms\n");
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
 }

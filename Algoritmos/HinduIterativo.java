@@ -4,16 +4,16 @@ import java.math.BigInteger;
 public class HinduIterativo {
     
     public static BigInteger multiply(BigInteger x, BigInteger y) {
-        // Convierte los números a cadenas para facilitar la manipulación
-        String xStr = x.toString();
-        String yStr = y.toString();
+        // Convierte los números a arreglos de dígitos
+        int[] xArr = convertToDigitsArray(x);
+        int[] yArr = convertToDigitsArray(y);
 
-        // Obtiene la longitud de las cadenas
-        int n = Math.max(xStr.length(), yStr.length());
+        // Obtiene la longitud de los arreglos
+        int n = Math.max(xArr.length, yArr.length);
 
-        // Rellena las cadenas con ceros a la izquierda para que tengan la misma longitud
-        xStr = leftPadWithZeros(xStr, n);
-        yStr = leftPadWithZeros(yStr, n);
+        // Rellena los arreglos con ceros a la izquierda para que tengan la misma longitud
+        xArr = leftPadWithZeros(xArr, n);
+        yArr = leftPadWithZeros(yArr, n);
 
         // Almacena los resultados parciales
         BigInteger result = BigInteger.ZERO;
@@ -21,12 +21,12 @@ public class HinduIterativo {
         // Realiza la multiplicación iterativa
         for (int i = 0; i < n; i++) {
             // Obtiene el dígito de x en la posición i
-            int digitX = xStr.charAt(i) - '0';
+            int digitX = xArr[i];
 
             // Realiza la multiplicación de x por el dígito de y en la posición i
             BigInteger partialResult = BigInteger.ZERO;
             for (int j = 0; j < n; j++) {
-                int digitY = yStr.charAt(j) - '0';
+                int digitY = yArr[j];
                 partialResult = partialResult.add(BigInteger.valueOf(digitX * digitY).multiply(BigInteger.TEN.pow(i + j)));
             }
 
@@ -37,12 +37,23 @@ public class HinduIterativo {
         return result;
     }
 
-    // Método para rellenar una cadena con ceros a la izquierda hasta que tenga la longitud especificada
-    private static String leftPadWithZeros(String str, int length) {
-        StringBuilder paddedStr = new StringBuilder(str);
-        while (paddedStr.length() < length) {
-            paddedStr.insert(0, '0');
+    // Método para convertir un BigInteger en un arreglo de dígitos
+    private static int[] convertToDigitsArray(BigInteger num) {
+        String numStr = num.toString();
+        int[] arr = new int[numStr.length()];
+        for (int i = 0; i < numStr.length(); i++) {
+            arr[i] = numStr.charAt(i) - '0';
         }
-        return paddedStr.toString();
+        return arr;
+    }
+
+    // Método para rellenar un arreglo con ceros a la izquierda hasta que tenga la longitud especificada
+    private static int[] leftPadWithZeros(int[] arr, int length) {
+        if (arr.length >= length) {
+            return arr;
+        }
+        int[] paddedArr = new int[length];
+        System.arraycopy(arr, 0, paddedArr, length - arr.length, arr.length);
+        return paddedArr;
     }
 }

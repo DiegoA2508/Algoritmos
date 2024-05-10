@@ -1,9 +1,16 @@
-package Algoritmos;
-import java.math.BigInteger;
+    package Algoritmos;
+    import java.math.BigInteger;
 
-public class AmericanaRecursivo {
-    
-    public static BigInteger multiplicacionAmericana(BigInteger multiplicando, BigInteger multiplicador) {
+    public class AmericanaRecursivo {
+        
+        // Método público para iniciar la multiplicación americana
+        public static BigInteger multiplicacionAmericana(BigInteger multiplicando, BigInteger multiplicador) {
+            // Llama al método recursivo con los parámetros iniciales
+            return multiplicacionAmericanaRecursive(multiplicando, multiplicador);
+        }
+
+    // Método privado que realiza la multiplicación americana de forma recursiva
+    private static BigInteger multiplicacionAmericanaRecursive(BigInteger multiplicando, BigInteger multiplicador) {
         // Convertir los números en cadenas para poder obtener la longitud de los dígitos
         String multiplicandoStr = multiplicando.toString();
         String multiplicadorStr = multiplicador.toString();
@@ -28,9 +35,9 @@ public class AmericanaRecursivo {
         BigInteger d = new BigInteger(multiplicadorStr.substring(mitadMultiplicador));
         
         // Calcular las multiplicaciones recursivamente
-        BigInteger ac = multiplicacionAmericana(a, c);
-        BigInteger bd = multiplicacionAmericana(b, d);
-        BigInteger ad_bc = multiplicacionAmericana(a.add(b), c.add(d)).subtract(ac).subtract(bd);
+        BigInteger ac = multiplicacionAmericanaRecursive(a, c);
+        BigInteger bd = multiplicacionAmericanaRecursive(b, d);
+        BigInteger ad_bc = multiplicacionAmericanaRecursive(a.add(b), c.add(d)).subtract(ac).subtract(bd);
         
         // Calcular el resultado final utilizando la fórmula adecuada
         return ac.multiply(BigInteger.TEN.pow(longitudMultiplicando)).add(ad_bc.multiply(BigInteger.TEN.pow(mitadMultiplicando))).add(bd);

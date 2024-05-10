@@ -1,0 +1,2 @@
+Algoritmo: Americana iterativo (estático), Longitud del multiplicador: 5000, Tiempo de ejecución: 1040ms
+Algoritmo: Americana iterativo (dinámico), Longitud del multiplicador: 5000, Tiempo de ejecución: 1075ms
