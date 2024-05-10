@@ -1,18 +1,6 @@
 import java.math.BigInteger;
-import java.util.Random;
 
 public class InglesaIterativoDinamico {
-
-    public static BigInteger generarNumeroAleatorio(int longitud) {
-        Random random = new Random();
-        StringBuilder numeroAleatorioStr = new StringBuilder();
-        // Asegurarse de que el primer dígito no sea cero
-        numeroAleatorioStr.append(random.nextInt(9) + 1);
-        for (int i = 1; i < longitud; i++) {
-            numeroAleatorioStr.append(random.nextInt(10)); // Números del 0 al 9
-        }
-        return new BigInteger(numeroAleatorioStr.toString());
-    }
     
     public static BigInteger multiplicacionInglesa(BigInteger multiplicando, BigInteger multiplicador) {
         // Convertir los números en cadenas para poder obtener la longitud de los dígitos
@@ -68,22 +56,4 @@ public class InglesaIterativoDinamico {
         return new BigInteger(resultadoStr.toString());
     }
     
-    public static void main(String[] args) {
-
-        int longitudMultiplicador = 9;
-        int longitudMultiplicando = 9;
-
-        BigInteger multiplicando = generarNumeroAleatorio(longitudMultiplicando);
-        BigInteger multiplicador = generarNumeroAleatorio(longitudMultiplicador);
-
-        System.out.println("Multiplicando: "+ multiplicando);
-        System.out.println("Multiplicador: "+ multiplicador);
-
-        long startTime = System.currentTimeMillis();
-        multiplicacionInglesa(multiplicando, multiplicador);
-        long endTime = System.currentTimeMillis();
-        
-        //System.out.println("Resultado: " + resultado);
-        System.out.println("El tiempo de ejecucion es: " +(endTime-startTime));
-    }
 }

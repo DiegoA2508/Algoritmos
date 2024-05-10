@@ -69,14 +69,14 @@ public class AmericanaIterativoDinamico {
     
     public static void main(String[] args) {
         // Generar números aleatorios para la multiplicación
-        int longitudMultiplicando = 9; // Ajusta la longitud según tus necesidades
-        int longitudMultiplicador = 9; // Ajusta la longitud según tus necesidades
+        int longitudMultiplicando = 5500; // Ajusta la longitud según tus necesidades
+        int longitudMultiplicador = 5500; // Ajusta la longitud según tus necesidades
         
         BigInteger multiplicando = generarNumeroAleatorio(longitudMultiplicando);
         BigInteger multiplicador = generarNumeroAleatorio(longitudMultiplicador);
         
-        System.out.println("Multiplicando: " + multiplicando);
-        System.out.println("Multiplicador: " + multiplicador);
+        //System.out.println("Multiplicando: " + multiplicando);
+        //System.out.println("Multiplicador: " + multiplicador);
         
         // Realizar la multiplicación
         long startTime = System.currentTimeMillis();
@@ -85,6 +85,6 @@ public class AmericanaIterativoDinamico {
         
         // Imprimir el resultado
         //System.out.println("Resultado: " + resultado);
-        System.out.println("El tiempo de ejecucion es: " +(endTime-startTime));
+        System.out.println("El tiempo de ejecucion es: " +(endTime-startTime) + "ms");
     }
 }

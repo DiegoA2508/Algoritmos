@@ -1,0 +1,5 @@
+Americana Recursivo,11.517
+Americana Recursivo Dinamico,366.565
+Inglesa Recursivo Estatico,5.192
+Inglesa Recursivo Dinamico,7.064
+Divide y Venceras,0.014

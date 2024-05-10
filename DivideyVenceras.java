@@ -52,8 +52,8 @@ public class DivideyVenceras {
     }
 
     public static void main(String[] args) {
-        int longitudMultiplicando = 9;
-        int longitudMultiplicador = 9;
+        int longitudMultiplicando = 10000;
+        int longitudMultiplicador = 10000;
         BigInteger x = generarNumeroAleatorio(longitudMultiplicando);
         BigInteger y = generarNumeroAleatorio(longitudMultiplicador);
 

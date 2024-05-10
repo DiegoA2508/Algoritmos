@@ -73,21 +73,21 @@ public class InglesaRecursivoEstatico {
     }
     
     public static void main(String[] args) {
-        int longitudMultiplicando = 9;
-        int longitudMultiplicador = 9;
+        int longitudMultiplicando = 32500;
+        int longitudMultiplicador = 32500;
 
         BigInteger multiplicando = generarNumeroAleatorio(longitudMultiplicando);
         BigInteger multiplicador = generarNumeroAleatorio(longitudMultiplicador);
 
-        System.out.println("Multiplicando: " + multiplicando);
-        System.out.println("Multiplicador: " + multiplicador);
+        //System.out.println("Multiplicando: " + multiplicando);
+        //System.out.println("Multiplicador: " + multiplicador);
         
         long startTime = System.currentTimeMillis();
         multiplicacionInglesa(multiplicando, multiplicador);
         long endTime = System.currentTimeMillis();
        
         //System.out.println("Resultado: " + resultado);
-        System.out.println("El tiempo de ejecucion es: " +(endTime-startTime));
+        System.out.println("El tiempo de ejecucion con " + longitudMultiplicador + " es: " +(endTime-startTime) + " ms ");
     }
 }
 

@@ -58,8 +58,8 @@ public class HinduIterativo {
     }
 
     public static void main(String[] args) {
-        int longitudMultiplicando = 50000;
-        int longitudMultiplicador = 50000;
+        int longitudMultiplicando = 10000;
+        int longitudMultiplicador = 10000;
         BigInteger x = generarNumeroAleatorio(longitudMultiplicando);
         BigInteger y = generarNumeroAleatorio(longitudMultiplicador);
 
@@ -68,6 +68,6 @@ public class HinduIterativo {
         long endTime = System.currentTimeMillis();
 
         //System.out.println("Resultado de la multiplicación: " + multiply(x, y));
-        System.out.println("El tiempo de ejecucion es: " +(endTime-startTime));
+        System.out.println("El tiempo de ejecucion con " + longitudMultiplicador + " es: " +(endTime-startTime) + " ms ");
     }
 }

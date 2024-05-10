@@ -49,14 +49,14 @@ public class AmericanaRecursivo {
     
     public static void main(String[] args) {
         // Generar números aleatorios para la multiplicación
-        int longitudMultiplicando = 2; // Ajusta la longitud según tus necesidades
-        int longitudMultiplicador = 2; // Ajusta la longitud según tus necesidades
+        int longitudMultiplicando = 10000; // Ajusta la longitud según tus necesidades
+        int longitudMultiplicador = 10000; // Ajusta la longitud según tus necesidades
         
         BigInteger multiplicando = generarNumeroAleatorio(longitudMultiplicando);
         BigInteger multiplicador = generarNumeroAleatorio(longitudMultiplicador);
         
-        System.out.println("Multiplicando: " + multiplicando);
-        System.out.println("Multiplicador: " + multiplicador);
+        //System.out.println("Multiplicando: " + multiplicando);
+        //System.out.println("Multiplicador: " + multiplicador);
         
         // Realizar la multiplicación
         long startTime = System.currentTimeMillis();
@@ -65,6 +65,6 @@ public class AmericanaRecursivo {
         
         // Imprimir el resultado
         //System.out.println("Resultado: " + resultado);
-        System.out.println("El tiempo de ejecucion es: " +(endTime-startTime));
+        System.out.println("El tiempo de ejecucion con " + longitudMultiplicador + " es: " +(endTime-startTime) + " ms ");
     }
 }
