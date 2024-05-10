@@ -1,5 +1,10 @@
-Americana Recursivo,11.517
-Americana Recursivo Dinamico,366.565
-Inglesa Recursivo Estatico,5.192
-Inglesa Recursivo Dinamico,7.064
-Divide y Venceras,0.014
+Americana iterativo (estatico), 32.130
+Americana iterativo (dinamico), 33.937
+Americana recursivo (estatico), 11.571
+Americana recursivo (dinamico), 198.349
+Inglesa iterativo (estatico), 30.950
+Inglesa iterativo (dinamico), 32.825
+Inglesa recursivo (estatico), 5.192
+Inglesa recursivo (dinamico), 7.064
+Hindu iterativo (estatico), 0
+Divide y vencerás (estatico), 0.014

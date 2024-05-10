@@ -170,7 +170,7 @@ public class Aplicacion extends Application {
         try {
             FileWriter writer = new FileWriter(fileName, true);
             writer.write("Algoritmo: " + algoritmo + ", Longitud del multiplicador: " + longitudMultiplicador
-                    + ", Tiempo de ejecución: " + tiempoEjecucion + "ms\n");
+                    + ", Tiempo de ejecucion: " + tiempoEjecucion + "ms\n");
             writer.close();
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
